@@ -7,7 +7,6 @@ async function copyDir() {
     
         const files = await fs.readdir(`${path.join('./04-copy-directory/files')}`, () => {});
         for (const element of files) {
-            console.log(path.join('./04-copy-directory/files-copy'));
             fs.copyFile(`${path.join('./04-copy-directory/files', `/${element}`)}`, `${path.join('./04-copy-directory/files-copy', `/${element}`)}`, 0, () => {});
         }
     } catch (error) {

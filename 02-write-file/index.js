@@ -21,7 +21,6 @@ async function writeFile() {
     });
 
     writeStream.on('finish', () => {
-      console.log('Write stream finish');
       writeStream.close();
       rl.close();
     });
