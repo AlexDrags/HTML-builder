@@ -15,7 +15,6 @@ async function buildingPage() {
 
     const assetsDirs = await fs.readdir(
       `${path.join('./06-build-page/assets')}`,
-      { recursive: true },
       () => {},
     );
 
