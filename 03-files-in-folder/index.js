@@ -13,7 +13,7 @@ async function readFolderFiles() {
         () => {},
       );
       if (stats.isFile() === true)
-        console.log(element + '-' + stats.size + 'kb');
+        console.log(element + '-' + stats.size + 'bite');
     }
   } catch (error) {
     console.error(error.message);
