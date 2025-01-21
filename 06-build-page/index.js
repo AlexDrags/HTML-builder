@@ -20,7 +20,7 @@ async function buildingPage() {
     );
 
     for (const dir of assetsDirs) {
-      fs.mkdir(
+      await fs.mkdir(
         `${path.join('./06-build-page/project-dist/assets', `/${dir}`)}`,
         { recursive: true },
         () => {},
