@@ -3,20 +3,29 @@ const path = require('node:path');
 
 async function copyDir() {
   try {
-    fs.mkdir(
-      path.join('./04-copy-directory', '/files-copy'),
+    await fs.mkdir(
+      path.join(__dirname, '/files-copy'),
       { recursive: true },
       () => {},
     );
+    const filesCopyDir = await fs.readdir(
+      `${path.join('./04-copy-directory/files-copy')}`,
+      () => {},
+    );
+
+    for (const element of filesCopyDir) {
+      await fs.rm(path.join('./04-copy-directory/files-copy', `/${element}`));
+    }
 
     const files = await fs.readdir(
       `${path.join('./04-copy-directory/files')}`,
       () => {},
     );
-    for (const element of files) {
+
+    for (const element2 of files) {
       fs.copyFile(
-        `${path.join('./04-copy-directory/files', `/${element}`)}`,
-        `${path.join('./04-copy-directory/files-copy', `/${element}`)}`,
+        `${path.join('./04-copy-directory/files', `/${element2}`)}`,
+        `${path.join('./04-copy-directory/files-copy', `/${element2}`)}`,
         0,
         () => {},
       );
